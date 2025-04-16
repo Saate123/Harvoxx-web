@@ -9,6 +9,9 @@ import Services from '../component/Services'
 import Pricing from '../component/Pricing'
 import Events from '../component/Events'
 import Testimonials from '../component/Testimonials'
+import Contact from '../component/Contact'
+import Newsletter from '../component/Newsletter'
+import Footer from '../component/Footer'
 
 function Home() {
   return (
@@ -23,6 +26,9 @@ function Home() {
       <Pricing />
       <Events />
       <Testimonials />
+      <Contact />
+      <Newsletter />
+      <Footer />
     </div>
   )
 }

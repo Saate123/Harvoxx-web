@@ -32,12 +32,16 @@ function Testimonials() {
   return (
     <div className="bg-white py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
       <h2 className="text-2xl md:text-3xl font-semibold text-center mb-4">
-        What Our <span className="text-[#FF9900] font-bold">Clients</span> Are
-        Saying
+        What Our{" "}
+        <span className="text-[#FFcc00] font-semibold relative inline-block">
+          Clients
+          <span className="absolute left-0 right-0 bottom-0 h-1 bg-[#ffcc00] rounded-full transform translate-y-1/2"></span>
+        </span>{" "}
+        Are Saying
       </h2>
       <p className="text-center text-gray-500 text-base md:text-lg mb-12">
         Hear from the businesses and individuals who have experienced our{" "}
-        <span className="text-[#FFCC00] font-semibold">
+        <span className="text-[#FFCC00] ">
           innovative solutions
         </span>{" "}
         firsthand.
