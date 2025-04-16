@@ -1,0 +1,140 @@
+import React, { useRef } from "react";
+import { IoTime } from "react-icons/io5";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
+import Img from "../assets/productdes.jpg";
+import Img2 from "../assets/productmgt.png";
+import Img3 from "../assets/webdevF.jpg";
+import Img4 from "../assets/webdevB.jpg";
+import Img5 from "../assets/webdevfull.jpg";
+
+const pricingData = [
+  {
+    image: Img,
+    title: "PRODUCT DESIGN (UI/UX)",
+    package: "Full Package",
+    duration: "6 months",
+    tools: "Figma, User Experience (UX), Product Requirement Document (PRD)",
+  },
+  {
+    image: Img2,
+    title: "PRODUCT MANAGEMENT",
+    package: "Full Package",
+    duration: "6 months",
+    tools:
+      "Jira, Slack, Whimsical, Sketch, Asana, Roadmunk, Trello, Github...Read More",
+  },
+  {
+    image: Img3,
+    title: "WEB DEV. (FRONTEND)",
+    package: "Basic - Intermediate",
+    duration: "3 months",
+    tools: "HTML, CSS, JavaScript",
+  },
+  {
+    image: Img4,
+    title: "WEB DEV. (BACKEND)",
+    package: "Full Package",
+    duration: "4 months",
+    tools: "PHP, Vue, MySQL, Node.js",
+  },
+  {
+    image: Img5,
+    title: "WEB DEV. (FULLSTACK)",
+    package: "Full Package",
+    duration: "6 months",
+    tools:
+      "HTML, CSS, JavaScript, REACT, VUE JS, PHP, NODE JS, GOLANG...Read More",
+  },
+];
+
+function Pricing() {
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-12 relative">
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-4">
+        Our{" "}
+        <span className="relative inline-block text-[#ffcc00]">
+          Pricing
+          <span className="absolute left-0 right-0 bottom-0 h-1 bg-[#ffcc00] rounded-full transform translate-y-1/2"></span>
+        </span>
+      </h1>
+      <p className="text-xl text-center mb-12">
+        Choose from a range of pricing options tailored to fit your{" "}
+        <span className="text-[#ffcc00]">goals and budget.</span>
+      </p>
+
+      {/* Navigation Buttons */}
+      <div
+        className="absolute top-[50%] left-0 z-10 hidden md:flex items-center justify-center w-10 h-10 bg-[#ffcc00] opacity-30 text-black rounded-full cursor-pointer transform -translate-y-1/2"
+        ref={prevRef}
+      >
+        <FaChevronLeft />
+      </div>
+      <div
+        className="absolute top-[50%] right-0 z-10 hidden md:flex items-center justify-center w-10 h-10 bg-[#ffcc00] opacity-30 text-black rounded-full cursor-pointer transform -translate-y-1/2"
+        ref={nextRef}
+      >
+        <FaChevronRight />
+      </div>
+
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={1}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        modules={[Navigation]}
+        navigation={{
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
+        }}
+        onInit={(swiper) => {
+          // Attach navigation after swiper is initialized
+          swiper.params.navigation.prevEl = prevRef.current;
+          swiper.params.navigation.nextEl = nextRef.current;
+          swiper.navigation.init();
+          swiper.navigation.update();
+        }}
+        className="pricing-swiper"
+      >
+        {pricingData.map((item, index) => (
+          <SwiperSlide key={index}>
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden p-4 h-full flex flex-col min-h-[460px]">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-48 object-cover rounded-md mb-4"
+              />
+              <h2 className="text-xl font-semibold text-[#213D56] mb-1">
+                {item.title}
+              </h2>
+              <span className="text-sm text-gray-600 mb-2">{item.package}</span>
+              <p className="flex items-center gap-2 text-sm text-[#213D56] mb-2">
+                <IoTime /> {item.duration}
+              </p>
+              <p className="text-sm text-gray-700 mb-4 flex-grow">
+                <span className="font-semibold">Tools:</span>
+                <br />
+                {item.tools}
+              </p>
+              <button className="mt-auto bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300">
+                View Details
+              </button>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}
+
+export default Pricing;
