@@ -11,6 +11,8 @@ import Img2 from "../assets/productmgt.png";
 import Img3 from "../assets/webdevF.jpg";
 import Img4 from "../assets/webdevB.jpg";
 import Img5 from "../assets/webdevfull.jpg";
+import Img6 from "../assets/digitalM.jpg"
+import Img7 from "../assets/graphics.jpg"
 
 const pricingData = [
   {
@@ -50,6 +52,27 @@ const pricingData = [
     tools:
       "HTML, CSS, JavaScript, REACT, VUE JS, PHP, NODE JS, GOLANG...Read More",
   },
+  {
+    image: Img6,
+    title: "DIGITAL MARKETING",
+    package: "Basic - Intermediate",
+    duration: "3 months",
+    tools: "SM- Marketing, Content Marketing, Email Marketing...Read More",
+  },
+  {
+    image: Img6,
+    title: "DIGITAL MARKETING",
+    package: "Advance",
+    duration: "3 months",
+    tools: "SM- Marketing, Content Marketing, Email Marketing...Read More",
+  },
+  {
+    image: Img7,
+    title: "GRAPHICS DESIGN",
+    package: "Full Package",
+    duration: "3 months",
+    tools: "CorelDRAW, Adobe Photoshop",
+  },
 ];
 
 function Pricing() {
@@ -57,11 +80,11 @@ function Pricing() {
   const nextRef = useRef(null);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12 relative">
-      <h1 className="text-3xl md:text-4xl font-semibold text-center mb-4">
-        Our{" "}
-        <span className="relative inline-block text-[#ffcc00]">
-          Pricing
+    <div className="max-w-7xl mx-auto px-4 py-10 relative">
+      <h1 className="text-3xl text-[#213D56] md:text-4xl font-semibold text-center mb-4">
+        Harvoxx School &{" "}
+        <span className="relative inline-block ">
+          Programs
           <svg
             className="w-full h-2 mt-1"
             viewBox="0 0 100 10"
@@ -101,7 +124,7 @@ function Pricing() {
         breakpoints={{
           640: { slidesPerView: 1 },
           768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 },
         }}
         modules={[Navigation]}
         navigation={{
@@ -143,6 +166,11 @@ function Pricing() {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className="flex justify-center items-center mt-5">
+        <button className="mt-auto bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300">
+          <a href="/programs">See All Courses</a>
+        </button>
+      </div>
     </div>
   );
 }
