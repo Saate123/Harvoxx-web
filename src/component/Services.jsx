@@ -84,14 +84,24 @@ function Services() {
         Our{" "}
         <span className="relative inline-block">
           Services
-          <span className="absolute left-0 right-0 bottom-0 h-1 bg-[#ffcc00] rounded-full transform translate-y-1/2"></span>
+          <svg
+            className="w-full h-2 mt-1"
+            viewBox="0 0 100 10"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,10 Q50,0 100,10"
+              fill="none"
+              stroke="#ffcc00"
+              strokeWidth="4"
+            />
+          </svg>
         </span>
       </h1>
       <p className="text-xl text-center mb-12">
         Explore a wide range of{" "}
-        <span className="text-[#ffcc00]">innovative</span> tech
-        solutions designed to drive your business forward and unlock new
-        opportunities.
+        <span className="text-[#ffcc00]">innovative</span> tech solutions
+        designed to drive your business forward and unlock new opportunities.
       </p>
 
       {services.map((service, index) => (

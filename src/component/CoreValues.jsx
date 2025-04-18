@@ -10,7 +10,18 @@ function CoreValues() {
         Our{" "}
         <span className="relative inline-block">
           Core Values
-          <span className="absolute left-0 right-0 bottom-0 h-1 bg-[#ffcc00] rounded-full transform translate-y-1/2"></span>
+          <svg
+            className="w-full h-2 mt-1"
+            viewBox="0 0 100 10"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,10 Q50,0 100,10"
+              fill="none"
+              stroke="#ffcc00"
+              strokeWidth="4"
+            />
+          </svg>
         </span>
       </h1>
       <p className="text-xl text-center mb-8">
@@ -25,9 +36,9 @@ function CoreValues() {
           <HiOutlineUserGroup className="text-[#ffcc00] text-3xl mb-2" />
           <h5 className="text-white text-xl font-semibold mb-2">Diversity</h5>
           <p className="text-white text-center text-[17px]">
-            We have a community that celebrates differences hence, we
-            encourage every member of the team and client to be proud of their
-            unique qualities and skills.
+            We have a community that celebrates differences hence, we encourage
+            every member of the team and client to be proud of their unique
+            qualities and skills.
           </p>
         </div>
 

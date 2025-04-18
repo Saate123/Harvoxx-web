@@ -12,7 +12,18 @@ function Contact() {
         Our{" "}
         <span className="relative inline-block">
           Contact Information
-          <span className="absolute left-0 right-0 bottom-0 h-1 bg-[#ffcc00] rounded-full transform translate-y-1/2"></span>
+          <svg
+            className="w-full h-2 mt-1"
+            viewBox="0 0 100 10"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,10 Q50,0 100,10"
+              fill="none"
+              stroke="#ffcc00"
+              strokeWidth="4"
+            />
+          </svg>
         </span>
       </h1>
 

@@ -36,8 +36,7 @@ function Footer() {
             <div className="w-[25%] lg:w-[22%]">
               <h5 className="font-semibold text-lg mb-3">Services</h5>
               <ul className="space-y-2 text-sm">
-                <li>Website Development</li>
-                <li>Mobile App Development</li>
+                <li>Website & Mobile App Development</li>
                 <li>Branding & Marketing</li>
                 <li>Consultancy</li>
                 <li>Harvoxx School</li>
@@ -59,7 +58,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      
+
       <div className="bg-[#00111F] text-sm text-center md:text-left h-[50px] flex items-center justify-center">
         <p className="flex justify-center md:justify-center items-center gap-1 text-gray-300">
           <MdOutlineCopyright className="text-lg" />
