@@ -29,7 +29,7 @@ function Hero() {
             Get Started
           </button>
           <button className="w-[180px] border-2 hover:bg-[#ffcc00] border-[#ffcc00] text-white hover:text-black px-5 py-3 rounded-lg text-sm transition-all duration-300">
-            Learn More
+            <a href="/about">Learn More</a>
           </button>
         </div>
       </div>

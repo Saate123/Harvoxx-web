@@ -72,16 +72,16 @@ function Pricing() {
 
       {/* Navigation Buttons */}
       <div
-        className="absolute top-[50%] left-0 z-10 hidden md:flex items-center justify-center w-10 h-10 bg-[#ffcc00] opacity-30 text-black rounded-full cursor-pointer transform -translate-y-1/2"
+        className="absolute top-1/2 left-2 z-10 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-[#ffcc00] opacity-80 hover:opacity-100 text-[#051A2B] rounded-full cursor-pointer transform -translate-y-1/2"
         ref={prevRef}
       >
-        <FaChevronLeft />
+        <FaChevronLeft size={16} className="md:size-8" />
       </div>
       <div
-        className="absolute top-[50%] right-0 z-10 hidden md:flex items-center justify-center w-10 h-10 bg-[#ffcc00] opacity-30 text-black rounded-full cursor-pointer transform -translate-y-1/2"
+        className="absolute top-1/2 right-2 z-10 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-[#ffcc00] opacity-80 hover:opacity-100 text-[#051A2B] rounded-full cursor-pointer transform -translate-y-1/2"
         ref={nextRef}
       >
-        <FaChevronRight />
+        <FaChevronRight size={16} className="md:size-8" />
       </div>
 
       <Swiper
@@ -98,7 +98,6 @@ function Pricing() {
           nextEl: nextRef.current,
         }}
         onInit={(swiper) => {
-          // Attach navigation after swiper is initialized
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
           swiper.navigation.init();

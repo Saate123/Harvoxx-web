@@ -27,7 +27,7 @@ function Newsletter() {
             placeholder="Enter your email address"
             className=" rounded-lg w-[350px] h-[55px] lg:w-[500px] bg-white text-black pl-2.5"
           />
-          <button className="w-[130px] lg:w-[147px] h-[72px] hover:border-2 bg-[#ffcc00] hover:border-[#ffcc00] text-black hover:text-white px-5 py-3 rounded-lg text-sm transition-all duration-300 absolute lg:right-12 right-3">
+          <button className="w-[130px] lg:w-[147px] h-[45px] hover:border-2 bg-[#ffcc00] hover:border-[#ffcc00] text-black hover:text-white px-5 py-3 rounded-lg text-sm transition-all duration-300 absolute lg:right-12 right-3">
             Subscribe
           </button>
         </div>

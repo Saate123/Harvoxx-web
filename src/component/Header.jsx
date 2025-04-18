@@ -1,26 +1,60 @@
-import React, { useState } from "react";
-import { Menu, X } from "lucide-react"; // Icons
-import Logo from "../assets/logo.png"; // Make sure the path is correct
+import React, { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import Logo from "../assets/logo.png";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isOpen]);
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "Events", path: "/events" },
+  ];
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <header className="w-full bg-[#213d56] shadow-md relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
         {/* Logo */}
-        <div className="flex">
+        <Link to="/" className="flex">
           <img src={Logo} alt="Logo" className="h-20 w-auto" />
-        </div>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8">
           <ul className="flex items-center space-x-6 text-white font-medium">
-            <li className="text-[#ffcc00] cursor-pointer">Home</li>
-            <li className="hover:text-[#ffcc00] cursor-pointer">About Us</li>
-            <li className="hover:text-[#ffcc00] cursor-pointer">Services</li>
-            <li className="hover:text-[#ffcc00] cursor-pointer">Pricing</li>
-            <li className="hover:text-[#ffcc00] cursor-pointer">Events</li>
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <Link
+                  to={link.path}
+                  className={`cursor-pointer ${
+                    isActive(link.path)
+                      ? "text-[#ffcc00] font-semibold"
+                      : "hover:text-[#ffcc00]"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
           </ul>
           <button className="ml-6 bg-[#ffcc00] text-black px-5 py-2 rounded-lg text-sm">
             Get Started
@@ -40,35 +74,43 @@ function Header() {
 
       {/* Slide-in Mobile Nav */}
       <div
-        className={`fixed top-16 right-0 w-[300px] h-[613px] bg-[#02192E] shadow-lg z-50 transition-transform duration-500 ease-in-out transform ${
+        className={`fixed top-16 right-0 w-[300px] h-[calc(100vh-4rem)] bg-[#02192E] shadow-lg z-50 transition-transform duration-500 ease-in-out transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >
         <div className="p-6 flex flex-col justify-between h-full">
           <ul className="flex flex-col space-y-6 text-white font-medium items-center">
-            <li className="bg-[#213D56] py-2 px-15 rounded-lg cursor-pointer">Home</li>
-            <li className="hover:text-[#ffcc00] cursor-pointer">About Us</li>
-            <li className="hover:text-[#ffcc00] cursor-pointer">Services</li>
-            <li className="hover:text-[#ffcc00] cursor-pointer">Pricing</li>
-            <li className="hover:text-[#ffcc00] cursor-pointer">Events</li>
+            {navLinks.map((link) => (
+              <li key={link.name} onClick={() => setIsOpen(false)}>
+                <Link
+                  to={link.path}
+                  className={`block py-2 px-6 rounded-lg w-full text-center ${
+                    isActive(link.path)
+                      ? "bg-[#213D56] text-[#ffcc00] font-semibold"
+                      : "hover:text-[#ffcc00]"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
           </ul>
           <div>
-            <button className="w-full bg-[#ffcc00] hover:bg-transparent hover:border-2 hover:border-[#ffcc00] text-black px-5 py-3 rounded-lg text-sm mt-8">
+            <button
+              onClick={() => setIsOpen(false)}
+              className="w-full bg-[#ffcc00] hover:bg-transparent hover:border-2 hover:border-[#ffcc00] text-black px-5 py-3 rounded-lg text-sm mt-8"
+            >
               Get Started
             </button>
-            <button className="w-full border-2 hover:bg-[#ffcc00] border-[#ffcc00] text-white hover:text-black px-5 py-3 rounded-lg text-sm mt-4">
+            <button
+              onClick={() => setIsOpen(false)}
+              className="w-full border-2 hover:bg-[#ffcc00] border-[#ffcc00] text-white hover:text-black px-5 py-3 rounded-lg text-sm mt-4"
+            >
               Learn More
             </button>
           </div>
         </div>
       </div>
-
-      {/* Optional: Push content slightly when menu opens */}
-      <div
-        className={`transition-all duration-500 ${
-          isOpen ? "md:ml-0 ml-[300px]" : "ml-0"
-        }`}
-      ></div>
     </header>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // ✅ Import Link
 import Img from "../assets/newsletter.png";
 
 function About() {
@@ -26,9 +27,11 @@ function About() {
 
         {/* Button on desktop (inline with text) */}
         <div className="hidden md:block mt-6">
-          <button className="w-[180px] bg-[#ffcc00] hover:bg-transparent hover:border hover:border-[#ffcc00] text-black hover:text-[#ffcc00] px-5 py-3 rounded-lg text-sm transition-all duration-300">
-            Learn More
-          </button>
+          <a href="/about">
+            <button className="w-[180px] bg-[#ffcc00] hover:bg-transparent hover:border hover:border-[#ffcc00] text-black hover:text-[#ffcc00] px-5 py-3 rounded-lg text-sm transition-all duration-300">
+              Learn More
+            </button>
+          </a>
         </div>
       </div>
 
@@ -51,9 +54,11 @@ function About() {
 
       {/* Button for mobile (after image) */}
       <div className="block md:hidden mt-6 order-3 w-full text-center">
-        <button className="w-[180px] hover:bg-[#ffcc00] bg-transparent border-2 border-[#ffcc00] hover:text-black text-[#ffcc00] px-5 hover:border-none py-3 rounded-lg text-sm transition-all duration-300">
-          Learn More
-        </button>
+        <a href="/about">
+          <button className="w-[180px] bg-[#ffcc00] hover:bg-transparent hover:border hover:border-[#ffcc00] text-black hover:text-[#ffcc00] px-5 py-3 rounded-lg text-sm transition-all duration-300">
+            Learn More
+          </button>
+        </a>
       </div>
     </div>
   );

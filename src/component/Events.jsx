@@ -28,7 +28,7 @@ function Events() {
 
   return (
     <div className="relative px-4 py-12 bg-gradient-to-br from-[#051A2B]  to-[#1568AB]">
-      <h1 className="text-3xl text-white md:text-4xl font-bold text-center mb-4">
+      <h1 className="text-3xl text-white md:text-4xl font-semibold text-center mb-4">
         Our{" "}
         <span className="relative inline-block text-[#ffcc00]">
           Events
