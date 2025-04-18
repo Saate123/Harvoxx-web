@@ -168,7 +168,7 @@ function Pricing() {
       </Swiper>
       <div className="flex justify-center items-center mt-5">
         <button className="mt-auto bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300">
-          <a href="/programs">See All Courses</a>
+          <a href="/pricing">See All Courses</a>
         </button>
       </div>
     </div>

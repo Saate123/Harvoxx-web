@@ -129,6 +129,9 @@ const pricingData = [
 ];
 
 function Programs() {
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+
   return (
     <div>
       <Header />
@@ -155,6 +158,7 @@ function Programs() {
           Choose from a range of pricing options tailored to fit your{" "}
           <span className="text-[#ffcc00]">goals and budget.</span>
         </p>
+
         {/* Search Input */}
         <div className="flex flex-col sm:flex-row items-center gap-3 justify-between mb-8">
           <div className="flex w-full sm:max-w-md border border-gray-300 rounded-lg overflow-hidden">
@@ -169,11 +173,14 @@ function Programs() {
           </div>
         </div>
 
-        {/* Filter Tabs */}
+        {/* Filter Tabs with Navigation */}
         <div className="relative mb-10">
           {/* Left Arrow */}
           <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 z-10">
-            <button className="swiper-button-prev-custom p-1 rounded-full bg-gray-200 hover:bg-gray-300 text-sm">
+            <button
+              ref={prevRef}
+              className="p-1 rounded-full bg-gray-200 hover:bg-gray-300 text-sm"
+            >
               <FaChevronLeft size={14} />
             </button>
           </div>
@@ -181,69 +188,50 @@ function Programs() {
           {/* Swiper */}
           <Swiper
             modules={[Navigation]}
-            navigation={{
-              nextEl: ".swiper-button-next-custom",
-              prevEl: ".swiper-button-prev-custom",
-            }}
             spaceBetween={10}
             slidesPerView="auto"
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            onBeforeInit={(swiper) => {
+              swiper.params.navigation.prevEl = prevRef.current;
+              swiper.params.navigation.nextEl = nextRef.current;
+            }}
             className="mb-10 px-6"
           >
-            <SwiperSlide className="!w-auto">
-              <button className="px-4 py-2 text-sm rounded-full bg-[#ffcc00] text-black font-medium">
-                All
-              </button>
-            </SwiperSlide>
-            <SwiperSlide className="!w-auto">
-              <button className="px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-[#ffcc00] hover:text-black transition">
-                Web Development
-              </button>
-            </SwiperSlide>
-            <SwiperSlide className="!w-auto">
-              <button className="px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-[#ffcc00] hover:text-black transition">
-                Data Analytics
-              </button>
-            </SwiperSlide>
-            <SwiperSlide className="!w-auto">
-              <button className="px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-[#ffcc00] hover:text-black transition">
-                Data Science
-              </button>
-            </SwiperSlide>
-            <SwiperSlide className="!w-auto">
-              <button className="px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-[#ffcc00] hover:text-black transition">
-                Product Design
-              </button>
-            </SwiperSlide>
-            <SwiperSlide className="!w-auto">
-              <button className="px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-[#ffcc00] hover:text-black transition">
-                Cyber Security
-              </button>
-            </SwiperSlide>
-            <SwiperSlide className="!w-auto">
-              <button className="px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-[#ffcc00] hover:text-black transition">
-                Digital Marketing
-              </button>
-            </SwiperSlide>
-            <SwiperSlide className="!w-auto">
-              <button className="px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-[#ffcc00] hover:text-black transition">
-                Product Management
-              </button>
-            </SwiperSlide>
-            <SwiperSlide className="!w-auto">
-              <button className="px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-[#ffcc00] hover:text-black transition">
-                Mobile App Dev
-              </button>
-            </SwiperSlide>
-            <SwiperSlide className="!w-auto">
-              <button className="px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-[#ffcc00] hover:text-black transition">
-                Graphic Design
-              </button>
-            </SwiperSlide>
+            {[
+              "All",
+              "Web Development",
+              "Data Analytics",
+              "Data Science",
+              "Product Design",
+              "Cyber Security",
+              "Digital Marketing",
+              "Product Management",
+              "Mobile App Dev",
+              "Graphic Design",
+            ].map((category, i) => (
+              <SwiperSlide key={i} className="!w-auto">
+                <button
+                  className={`px-4 py-2 text-sm rounded-full border ${
+                    category === "All"
+                      ? "bg-[#ffcc00] text-black font-medium border-transparent"
+                      : "border-gray-300 text-gray-700 hover:bg-[#ffcc00] hover:text-black transition"
+                  }`}
+                >
+                  {category}
+                </button>
+              </SwiperSlide>
+            ))}
           </Swiper>
 
           {/* Right Arrow */}
           <div className="absolute -right-3 top-1/2 transform -translate-y-1/2 z-10">
-            <button className="swiper-button-next-custom p-1 rounded-full bg-gray-200 hover:bg-gray-300 text-sm">
+            <button
+              ref={nextRef}
+              className="p-1 rounded-full bg-gray-200 hover:bg-gray-300 text-sm"
+            >
               <FaChevronRight size={14} />
             </button>
           </div>
