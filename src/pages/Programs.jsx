@@ -45,12 +45,20 @@ const pricingData = [
       "Jira, Slack, Whimsical, Sketch, Asana, Roadmunk, Trello, Github...Read More",
   },
   {
-    id: "frontend-dev",
+    id: "frontend-dev-basic",
     image: Img3,
     title: "WEB DEV. (FRONTEND)",
     package: "Basic - Intermediate",
     duration: "3 months",
     tools: "HTML, CSS, JavaScript",
+  },
+  {
+    id: "frontend-dev-adv",
+    image: Img3,
+    title: "WEB DEV. (FRONTEND)",
+    package: "Advance",
+    duration: "4 months",
+    tools: "HTML, CSS, JavaScript, Vue.Js, React.js",
   },
   {
     id: "backend-dev",
@@ -81,7 +89,7 @@ const pricingData = [
     id: "digital-marketing-adv",
     image: Img6,
     title: "DIGITAL MARKETING",
-    package: "Advance",
+    package: "Basic - Intermediate",
     duration: "3 months",
     tools: "SM- Marketing, Content Marketing, Email Marketing...Read More",
   },
@@ -144,13 +152,15 @@ const pricingData = [
   },
 ];
 
+// ...imports remain unchanged
+
 function Programs() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const navigate = useNavigate();
 
-  const handleReadMore = (schoolid) => {
-    navigate(`/school/${school.id}`);
+  const handleReadMore = (id) => {
+    navigate(`/programs/${id}`);
   };
 
   return (
@@ -274,7 +284,7 @@ function Programs() {
               </p>
               <button
                 onClick={() => handleReadMore(item.id)}
-                className="mt-auto bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300"
+                className="mt-auto bg-[rgb(255,204,0)] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300"
               >
                 View Details
               </button>
@@ -290,3 +300,4 @@ function Programs() {
 }
 
 export default Programs;
+

@@ -8,7 +8,7 @@ import Events from "./pages/Events";
 import Programs from "./pages/Programs";
 import ServiceDetails from "./pages/ServiceDetails";
 import Service from "./pages/Service";
-import PricingDetail from "./pages/PricingDetails";
+import ProgramDetails from "./pages/ProgramDetails";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,8 +21,8 @@ function App() {
         <Route path="/services" element={<Service />} />
         <Route path="/services/:id" element={<ServiceDetails />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/school" element={<Programs />} />
-        {/* <Route path="/school/:id" element={< PricingDetail/>} /> */}
+        <Route path="/program" element={<Programs />} />
+        <Route path="/programs/:programId" element={<ProgramDetails />} />
       </Routes>
     </BrowserRouter>
   );

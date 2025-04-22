@@ -24,7 +24,7 @@ function Header() {
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
     { name: "Services", path:"/services" },
-    { name: "Harvoxx School", path: "/school" },
+    { name: "Harvoxx School", path: "/program" },
     { name: "Events", path: "/events" },
   ];
 

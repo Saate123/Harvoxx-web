@@ -17,7 +17,7 @@ import Img7 from "../assets/graphics.jpg";
 
 const pricingData = [
   {
-    id: "product-des",
+    id: "product-design",
     image: Img,
     title: "PRODUCT DESIGN (UI/UX)",
     package: "Full Package",
@@ -34,7 +34,7 @@ const pricingData = [
       "Jira, Slack, Whimsical, Sketch, Asana, Roadmunk, Trello, Github...Read More",
   },
   {
-    id: "web-dev",
+    id: "frontend-dev",
     image: Img3,
     title: "WEB DEV. (FRONTEND)",
     package: "Basic - Intermediate",
@@ -42,7 +42,7 @@ const pricingData = [
     tools: "HTML, CSS, JavaScript",
   },
   {
-    id: "web-dev-B",
+    id: "backend-dev",
     image: Img4,
     title: "WEB DEV. (BACKEND)",
     package: "Full Package",
@@ -50,7 +50,7 @@ const pricingData = [
     tools: "PHP, Vue, MySQL, Node.js",
   },
   {
-    id: "web-dev-F",
+    id: "fullstack-dev",
     image: Img5,
     title: "WEB DEV. (FULLSTACK)",
     package: "Full Package",
@@ -59,7 +59,7 @@ const pricingData = [
       "HTML, CSS, JavaScript, REACT, VUE JS, PHP, NODE JS, GOLANG...Read More",
   },
   {
-    id: "digital-mkt",
+    id: "digital-marketing-basic",
     image: Img6,
     title: "DIGITAL MARKETING",
     package: "Basic - Intermediate",
@@ -67,7 +67,7 @@ const pricingData = [
     tools: "SM- Marketing, Content Marketing, Email Marketing...Read More",
   },
   {
-    id: "digital-mrk-A",
+    id: "digital-marketing-adv",
     image: Img6,
     title: "DIGITAL MARKETING",
     package: "Advance",
@@ -75,7 +75,7 @@ const pricingData = [
     tools: "SM- Marketing, Content Marketing, Email Marketing...Read More",
   },
   {
-    id: "graphics-des",
+    id: "graphics",
     image: Img7,
     title: "GRAPHICS DESIGN",
     package: "Full Package",
@@ -84,14 +84,19 @@ const pricingData = [
   },
 ];
 
-function Pricing() {
+function Program() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const navigate = useNavigate();
 
-  const handleReadMore = (item) => {
-    navigate(`/school/${item.id}`);
+  const handleReadMore = (program) => {
+    navigate(`/programs/${program.id}`);
   };
+
+  const handleSeeAllCourses = () => {
+    navigate("/program");
+  };
+  
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 relative">
@@ -177,7 +182,7 @@ function Pricing() {
                 onClick={() => handleReadMore(item)}
                 className="mt-4 bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-6 py-2 rounded transition-all duration-300"
               >
-                <a href={`/school/${item.id}`}>View Details</a>
+                View Details
               </button>
             </div>
           </SwiperSlide>
@@ -185,12 +190,15 @@ function Pricing() {
       </Swiper>
 
       <div className="flex justify-center items-center mt-5">
-        <button className="bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300">
-          <a href="/pricing">See All Courses</a>
+        <button
+          onClick={handleSeeAllCourses}
+          className="bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300"
+        >
+          <a href="/program">See All Courses</a>
         </button>
       </div>
     </div>
   );
 }
 
-export default Pricing;
+export default Program;
