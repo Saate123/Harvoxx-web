@@ -22,7 +22,7 @@ function App() {
         <Route path="/services/:id" element={<ServiceDetails />} />
         <Route path="/events" element={<Events />} />
         <Route path="/school" element={<Programs />} />
-        <Route path="/school/:section" element={<PricingDetail />} />
+        {/* <Route path="/school/:id" element={< PricingDetail/>} /> */}
       </Routes>
     </BrowserRouter>
   );

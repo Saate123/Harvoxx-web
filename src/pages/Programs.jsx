@@ -149,8 +149,8 @@ function Programs() {
   const nextRef = useRef(null);
   const navigate = useNavigate();
 
-  const handleReadMore = (schoolId) => {
-    navigate(`/school/${schoolId}`);
+  const handleReadMore = (schoolid) => {
+    navigate(`/school/${school.id}`);
   };
 
   return (
