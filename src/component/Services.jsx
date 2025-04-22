@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Img from "../assets/services.png";
 import Img2 from "../assets/newsletter.png";
 import Img3 from "../assets/consultancy.png";
@@ -6,12 +7,15 @@ import Img4 from "../assets/school.png";
 import Img5 from "../assets/harvcation.png";
 
 function Services() {
+  const navigate = useNavigate();
+
   const services = [
     {
+      id: "web-dev",
       title: "Website and Mobile App Design & Development",
       description: [
         <>
-          <span className="text-[#ffcc00] underline">Build With Harvoxx</span>{" "}
+          <span className="text-[#ffcc00]">Build With Harvoxx</span>{" "}
           designs & Develops websites for interested clients (individuals,
           firms, companies, NGOs, government agencies etc) at an affordable
           rate. We also deliver to our clients in record time as we do not
@@ -27,6 +31,7 @@ function Services() {
       image: Img,
     },
     {
+      id: "branding-marketing",
       title: "Branding & Marketing",
       description: [
         "It is no longer news that we have assembled the best hands to provide our clients the best branding services. We acknowledge the fact that having a top-notch design and branding to attract customers and clients to your business is phenomenally important.",
@@ -35,6 +40,7 @@ function Services() {
       image: Img2,
     },
     {
+      id: "consultancy",
       title: "Consultancy",
       description: [
         "At Harvoxx Tech Hub, our consultancy arm is the compass guiding businesses through the ever-evolving tech landscape. Leveraging our expertise, we provide strategic insights, innovative solutions, and streamlined processes.",
@@ -43,11 +49,12 @@ function Services() {
       image: Img3,
     },
     {
+      id: "harvoxx-school",
       title: "Harvoxx School",
       subtitle: "(Capacity Building Initiative)",
       description: [
         <>
-          <span className="text-[#ffcc00] underline">Harvoxx School</span> is
+          <span className="text-[#ffcc00] ">Harvoxx School</span> is
           committed to empowering individuals with the skills and knowledge
           needed to thrive in a rapidly evolving world.
         </>,
@@ -62,12 +69,13 @@ function Services() {
       image: Img4,
     },
     {
+      id: "harvcubation",
       title: "HARVCUBATION",
       subtitle: "(Incubation for Tech Startups)",
       description: [
         <>
           Harvoxx Tech Hub’s{" "}
-          <span className="text-[#ffcc00] underline">TechLauncher</span> prides
+          <span className="text-[#ffcc00] ">TechLauncher</span> prides
           herself as the platform where successful startups emerge. We are
           focused on ensuring that we help tech startups launch their products
           successfully and grow exponentially.
@@ -77,6 +85,10 @@ function Services() {
       image: Img5,
     },
   ];
+
+  const handleReadMore = (service) => {
+    navigate(`/services/${service.id}`);
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
@@ -129,8 +141,11 @@ function Services() {
                   {para}
                 </p>
               ))}
-              <button className="mt-4 bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-6 py-2 rounded transition-all duration-300">
-                Read More
+              <button
+                onClick={() => handleReadMore(service)}
+                className="mt-4 bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-6 py-2 rounded transition-all duration-300"
+              >
+                <a href={`/services/${service.id}`}>Read More</a>
               </button>
             </div>
 

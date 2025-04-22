@@ -23,8 +23,8 @@ function Header() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Pricing", path: "/pricing" },
+    { name: "Services", path:"/services" },
+    { name: "Harvoxx School", path: "/school" },
     { name: "Events", path: "/events" },
   ];
 
@@ -74,7 +74,7 @@ function Header() {
 
       {/* Slide-in Mobile Nav */}
       <div
-        className={`fixed top-16 right-0 w-[300px] h-[calc(100vh-4rem)] bg-[#02192E] shadow-lg z-50 transition-transform duration-500 ease-in-out transform ${
+        className={`fixed top-16 right-0 w-[300px] h-[calc(90vh-4rem)] bg-[#02192E] shadow-lg z-50 transition-transform duration-500 ease-in-out transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >

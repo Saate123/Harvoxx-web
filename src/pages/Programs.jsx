@@ -1,10 +1,17 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { IoTime } from "react-icons/io5";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
+
+import Header from "../component/Header";
+import Contact from "../component/Contact";
+import Footer from "../component/Footer";
+import Newsletter from "../component/Newsletter";
 
 import Img from "../assets/productdes.jpg";
 import Img2 from "../assets/productmgt.png";
@@ -18,14 +25,10 @@ import Img9 from "../assets/dataS.jpg";
 import Img10 from "../assets/data.jpg";
 import Img11 from "../assets/dataA.jpg";
 import Img12 from "../assets/cyber.png";
-import Header from "../component/Header";
-import Contact from "../component/Contact";
-import Footer from "../component/Footer";
-import Newsletter from "../component/Newsletter";
-import { CiSearch } from "react-icons/ci";
 
 const pricingData = [
   {
+    id: "product-design",
     image: Img,
     title: "PRODUCT DESIGN (UI/UX)",
     package: "Full Package",
@@ -33,6 +36,7 @@ const pricingData = [
     tools: "Figma, User Experience (UX), Product Requirement Document (PRD)",
   },
   {
+    id: "product-mgt",
     image: Img2,
     title: "PRODUCT MANAGEMENT",
     package: "Full Package",
@@ -41,6 +45,7 @@ const pricingData = [
       "Jira, Slack, Whimsical, Sketch, Asana, Roadmunk, Trello, Github...Read More",
   },
   {
+    id: "frontend-dev",
     image: Img3,
     title: "WEB DEV. (FRONTEND)",
     package: "Basic - Intermediate",
@@ -48,6 +53,7 @@ const pricingData = [
     tools: "HTML, CSS, JavaScript",
   },
   {
+    id: "backend-dev",
     image: Img4,
     title: "WEB DEV. (BACKEND)",
     package: "Full Package",
@@ -55,6 +61,7 @@ const pricingData = [
     tools: "PHP, Vue, MySQL, Node.js",
   },
   {
+    id: "fullstack-dev",
     image: Img5,
     title: "WEB DEV. (FULLSTACK)",
     package: "Full Package",
@@ -63,6 +70,7 @@ const pricingData = [
       "HTML, CSS, JavaScript, REACT, VUE JS, PHP, NODE JS, GOLANG...Read More",
   },
   {
+    id: "digital-marketing-basic",
     image: Img6,
     title: "DIGITAL MARKETING",
     package: "Basic - Intermediate",
@@ -70,6 +78,7 @@ const pricingData = [
     tools: "SM- Marketing, Content Marketing, Email Marketing...Read More",
   },
   {
+    id: "digital-marketing-adv",
     image: Img6,
     title: "DIGITAL MARKETING",
     package: "Advance",
@@ -77,6 +86,7 @@ const pricingData = [
     tools: "SM- Marketing, Content Marketing, Email Marketing...Read More",
   },
   {
+    id: "graphics",
     image: Img7,
     title: "GRAPHICS DESIGN",
     package: "Full Package",
@@ -84,6 +94,7 @@ const pricingData = [
     tools: "CorelDRAW, Adobe Photoshop",
   },
   {
+    id: "mobile-dev",
     image: Img8,
     title: "MOBILE APP DEV.",
     package: "Full Package",
@@ -91,6 +102,7 @@ const pricingData = [
     tools: "Flutter (Dart), React Native",
   },
   {
+    id: "data-science",
     image: Img9,
     title: "DATA SCIENCE",
     package: "Full Package",
@@ -99,6 +111,7 @@ const pricingData = [
       "Python(Numpy, Pandas, Matplotlib, Seaborn, Scikit-Learn)...Read More",
   },
   {
+    id: "data-analytics-basic",
     image: Img10,
     title: "DATA ANALYTICS",
     package: "Basic - Intermediate",
@@ -106,6 +119,7 @@ const pricingData = [
     tools: "Excel, Power BI, SQL, Python",
   },
   {
+    id: "data-analytics-adv",
     image: Img11,
     title: "DATA ANALYTICS",
     package: "Advance",
@@ -113,6 +127,7 @@ const pricingData = [
     tools: "Adv. Excel, Power BI, Adv. SQL, ADV. Python, Tableau",
   },
   {
+    id: "cyber-basic",
     image: Img12,
     title: "CYBER SECURITY",
     package: "Basic - Intermediate",
@@ -120,6 +135,7 @@ const pricingData = [
     tools: "Nmap, Burp Suite, Nessus, Firece, Wfuzz",
   },
   {
+    id: "cyber-adv",
     image: Img12,
     title: "CYBER SECURITY",
     package: "ADVANCE",
@@ -131,6 +147,11 @@ const pricingData = [
 function Programs() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleReadMore = (schoolId) => {
+    navigate(`/school/${schoolId}`);
+  };
 
   return (
     <div>
@@ -138,7 +159,7 @@ function Programs() {
       <div className="max-w-7xl mx-auto px-4 py-10 relative">
         <h1 className="text-3xl text-[#213D56] md:text-4xl lg:text-left font-semibold text-center mb-4">
           Our{" "}
-          <span className="relative inline-block ">
+          <span className="relative inline-block">
             Programs & Pricing
             <svg
               className="w-full h-2 mt-1"
@@ -154,7 +175,7 @@ function Programs() {
             </svg>
           </span>
         </h1>
-        <p className="text-xl text-center lg:text-left  mb-12">
+        <p className="text-xl text-center lg:text-left mb-12">
           Choose from a range of pricing options tailored to fit your{" "}
           <span className="text-[#ffcc00]">goals and budget.</span>
         </p>
@@ -173,9 +194,8 @@ function Programs() {
           </div>
         </div>
 
-        {/* Filter Tabs with Navigation */}
+        {/* Filter Swiper Tabs */}
         <div className="relative mb-10">
-          {/* Left Arrow */}
           <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 z-10">
             <button
               ref={prevRef}
@@ -185,7 +205,6 @@ function Programs() {
             </button>
           </div>
 
-          {/* Swiper */}
           <Swiper
             modules={[Navigation]}
             spaceBetween={10}
@@ -213,20 +232,13 @@ function Programs() {
               "Graphic Design",
             ].map((category, i) => (
               <SwiperSlide key={i} className="!w-auto">
-                <button
-                  className={`px-4 py-2 text-sm rounded-full border ${
-                    category === "All"
-                      ? "bg-[#ffcc00] text-black font-medium border-transparent"
-                      : "border-gray-300 text-gray-700 hover:bg-[#ffcc00] hover:text-black transition"
-                  }`}
-                >
+                <button className="px-4 py-2 text-sm rounded-full border border-gray-300 hover:bg-[#ffcc00] hover:text-black transition">
                   {category}
                 </button>
               </SwiperSlide>
             ))}
           </Swiper>
 
-          {/* Right Arrow */}
           <div className="absolute -right-3 top-1/2 transform -translate-y-1/2 z-10">
             <button
               ref={nextRef}
@@ -238,9 +250,9 @@ function Programs() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {pricingData.map((item, index) => (
+          {pricingData.map((item) => (
             <div
-              key={index}
+              key={item.id}
               className="bg-white shadow-lg rounded-lg overflow-hidden p-4 h-full flex flex-col min-h-[460px]"
             >
               <img
@@ -260,7 +272,10 @@ function Programs() {
                 <br />
                 {item.tools}
               </p>
-              <button className="mt-auto bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300">
+              <button
+                onClick={() => handleReadMore(item.id)}
+                className="mt-auto bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300"
+              >
                 View Details
               </button>
             </div>

@@ -6,6 +6,9 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Events from "./pages/Events";
 import Programs from "./pages/Programs";
+import ServiceDetails from "./pages/ServiceDetails";
+import Service from "./pages/Service";
+import PricingDetail from "./pages/PricingDetails";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,8 +18,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Service />} />
+        <Route path="/services/:id" element={<ServiceDetails />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/pricing" element={<Programs />} />
+        <Route path="/school" element={<Programs />} />
+        <Route path="/school/:section" element={<PricingDetail />} />
       </Routes>
     </BrowserRouter>
   );

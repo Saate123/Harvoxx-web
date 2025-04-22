@@ -5,17 +5,19 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 import Img from "../assets/productdes.jpg";
 import Img2 from "../assets/productmgt.png";
 import Img3 from "../assets/webdevF.jpg";
 import Img4 from "../assets/webdevB.jpg";
 import Img5 from "../assets/webdevfull.jpg";
-import Img6 from "../assets/digitalM.jpg"
-import Img7 from "../assets/graphics.jpg"
+import Img6 from "../assets/digitalM.jpg";
+import Img7 from "../assets/graphics.jpg";
 
 const pricingData = [
   {
+    id: "product-des",
     image: Img,
     title: "PRODUCT DESIGN (UI/UX)",
     package: "Full Package",
@@ -23,6 +25,7 @@ const pricingData = [
     tools: "Figma, User Experience (UX), Product Requirement Document (PRD)",
   },
   {
+    id: "product-mgt",
     image: Img2,
     title: "PRODUCT MANAGEMENT",
     package: "Full Package",
@@ -31,6 +34,7 @@ const pricingData = [
       "Jira, Slack, Whimsical, Sketch, Asana, Roadmunk, Trello, Github...Read More",
   },
   {
+    id: "web-dev",
     image: Img3,
     title: "WEB DEV. (FRONTEND)",
     package: "Basic - Intermediate",
@@ -38,6 +42,7 @@ const pricingData = [
     tools: "HTML, CSS, JavaScript",
   },
   {
+    id: "web-dev-B",
     image: Img4,
     title: "WEB DEV. (BACKEND)",
     package: "Full Package",
@@ -45,6 +50,7 @@ const pricingData = [
     tools: "PHP, Vue, MySQL, Node.js",
   },
   {
+    id: "web-dev-F",
     image: Img5,
     title: "WEB DEV. (FULLSTACK)",
     package: "Full Package",
@@ -53,6 +59,7 @@ const pricingData = [
       "HTML, CSS, JavaScript, REACT, VUE JS, PHP, NODE JS, GOLANG...Read More",
   },
   {
+    id: "digital-mkt",
     image: Img6,
     title: "DIGITAL MARKETING",
     package: "Basic - Intermediate",
@@ -60,6 +67,7 @@ const pricingData = [
     tools: "SM- Marketing, Content Marketing, Email Marketing...Read More",
   },
   {
+    id: "digital-mrk-A",
     image: Img6,
     title: "DIGITAL MARKETING",
     package: "Advance",
@@ -67,6 +75,7 @@ const pricingData = [
     tools: "SM- Marketing, Content Marketing, Email Marketing...Read More",
   },
   {
+    id: "graphics-des",
     image: Img7,
     title: "GRAPHICS DESIGN",
     package: "Full Package",
@@ -78,6 +87,11 @@ const pricingData = [
 function Pricing() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleReadMore = (item) => {
+    navigate(`/school/${item.id}`);
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 relative">
@@ -159,15 +173,19 @@ function Pricing() {
                 <br />
                 {item.tools}
               </p>
-              <button className="mt-auto bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300">
-                View Details
+              <button
+                onClick={() => handleReadMore(item)}
+                className="mt-4 bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-6 py-2 rounded transition-all duration-300"
+              >
+                <a href={`/school/${item.id}`}>View Details</a>
               </button>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
+
       <div className="flex justify-center items-center mt-5">
-        <button className="mt-auto bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300">
+        <button className="bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300">
           <a href="/pricing">See All Courses</a>
         </button>
       </div>

@@ -24,7 +24,7 @@ function Footer() {
               <ul className="space-y-2 text-sm">
                 <li>Home</li>
                 <li>About Us</li>
-                <li>Services</li>
+                {/* <li>Services</li> */}
                 <li>Testimonials</li>
                 <li>Pricing</li>
                 <li>Events</li>
