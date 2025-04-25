@@ -35,6 +35,7 @@ const pricingData = [
   },
   {
     id: "frontend-dev",
+    groupId: "web-development", // Add groupId
     image: Img3,
     title: "WEB DEV. (FRONTEND)",
     package: "Basic - Intermediate",
@@ -43,6 +44,7 @@ const pricingData = [
   },
   {
     id: "backend-dev",
+    groupId: "web-development", // Add groupId
     image: Img4,
     title: "WEB DEV. (BACKEND)",
     package: "Full Package",
@@ -51,6 +53,7 @@ const pricingData = [
   },
   {
     id: "fullstack-dev",
+    groupId: "web-development", // Add groupId
     image: Img5,
     title: "WEB DEV. (FULLSTACK)",
     package: "Full Package",
@@ -90,13 +93,12 @@ function Program() {
   const navigate = useNavigate();
 
   const handleReadMore = (program) => {
-    navigate(`/programs/${program.id}`);
+    navigate(`/program/${program.groupId || program.id}`);
   };
 
   const handleSeeAllCourses = () => {
     navigate("/program");
   };
-  
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 relative">
@@ -182,7 +184,7 @@ function Program() {
                 onClick={() => handleReadMore(item)}
                 className="mt-4 bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-6 py-2 rounded transition-all duration-300"
               >
-                View Details
+                <a href={`/program/${item.groupId || item.id}`}>View Details</a>
               </button>
             </div>
           </SwiperSlide>

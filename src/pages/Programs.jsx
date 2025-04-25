@@ -46,22 +46,25 @@ const pricingData = [
   },
   {
     id: "frontend-dev-basic",
+    groupId: "web-development", // Add groupId
     image: Img3,
-    title: "WEB DEV. (FRONTEND)",
+    title: "WEB DEV. (FRONTEND) - Basic",
     package: "Basic - Intermediate",
     duration: "3 months",
     tools: "HTML, CSS, JavaScript",
   },
   {
     id: "frontend-dev-adv",
+    groupId: "web-development", // Add groupId
     image: Img3,
-    title: "WEB DEV. (FRONTEND)",
-    package: "Advance",
+    title: "WEB DEV. (FRONTEND) - Advanced",
+    package: "Advanced",
     duration: "4 months",
     tools: "HTML, CSS, JavaScript, Vue.Js, React.js",
   },
   {
     id: "backend-dev",
+    groupId: "web-development", // Add groupId
     image: Img4,
     title: "WEB DEV. (BACKEND)",
     package: "Full Package",
@@ -70,6 +73,7 @@ const pricingData = [
   },
   {
     id: "fullstack-dev",
+    groupId: "web-development", // Add groupId
     image: Img5,
     title: "WEB DEV. (FULLSTACK)",
     package: "Full Package",
@@ -79,17 +83,19 @@ const pricingData = [
   },
   {
     id: "digital-marketing-basic",
+    groupId: "digital-marketing", // Add groupId
     image: Img6,
-    title: "DIGITAL MARKETING",
+    title: "DIGITAL MARKETING - Basic",
     package: "Basic - Intermediate",
     duration: "3 months",
     tools: "SM- Marketing, Content Marketing, Email Marketing...Read More",
   },
   {
     id: "digital-marketing-adv",
+    groupId: "digital-marketing", // Add groupId
     image: Img6,
-    title: "DIGITAL MARKETING",
-    package: "Basic - Intermediate",
+    title: "DIGITAL MARKETING - Advanced",
+    package: "Advance",
     duration: "3 months",
     tools: "SM- Marketing, Content Marketing, Email Marketing...Read More",
   },
@@ -120,48 +126,45 @@ const pricingData = [
   },
   {
     id: "data-analytics-basic",
+    groupId: "data-analytics", // Add groupId
     image: Img10,
-    title: "DATA ANALYTICS",
+    title: "DATA ANALYTICS - Basic",
     package: "Basic - Intermediate",
     duration: "3 months",
     tools: "Excel, Power BI, SQL, Python",
   },
   {
     id: "data-analytics-adv",
+    groupId: "data-analytics", // Add groupId
     image: Img11,
-    title: "DATA ANALYTICS",
+    title: "DATA ANALYTICS - Advanced",
     package: "Advance",
     duration: "5 months",
     tools: "Adv. Excel, Power BI, Adv. SQL, ADV. Python, Tableau",
   },
   {
-    id: "cyber-basic",
+    id: "cyber-security-basic",
+    groupId: "cyber-security", // Add groupId
     image: Img12,
-    title: "CYBER SECURITY",
+    title: "CYBER SECURITY - Basic",
     package: "Basic - Intermediate",
     duration: "3 months",
     tools: "Nmap, Burp Suite, Nessus, Firece, Wfuzz",
   },
   {
-    id: "cyber-adv",
+    id: "cyber-security-adv",
+    groupId: "cyber-security", // Add groupId
     image: Img12,
-    title: "CYBER SECURITY",
+    title: "CYBER SECURITY - Advanced",
     package: "ADVANCE",
     duration: "6 months",
     tools: "Nmap, Katana, Nuclei, Wireshark, Splunk, Metasploit...Read More",
   },
 ];
 
-// ...imports remain unchanged
-
 function Programs() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-  const navigate = useNavigate();
-
-  const handleReadMore = (id) => {
-    navigate(`/programs/${id}`);
-  };
 
   return (
     <div>
@@ -196,7 +199,7 @@ function Programs() {
             <input
               type="text"
               placeholder="Search courses here..."
-              className="flex-grow px-4 py-2 text-sm outline-none"
+              className="flex-grow px-4 py-2 text-sm outline-none "
             />
             <button className="bg-[#ffcc00] px-4 py-2 text-black hover:bg-[#e6b800] transition">
               <CiSearch size={20} />
@@ -282,11 +285,8 @@ function Programs() {
                 <br />
                 {item.tools}
               </p>
-              <button
-                onClick={() => handleReadMore(item.id)}
-                className="mt-auto bg-[rgb(255,204,0)] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300"
-              >
-                View Details
+              <button className="mt-auto bg-[rgb(255,204,0)] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300">
+                <a href={`/program/${item.groupId || item.id}`}>View Details</a>
               </button>
             </div>
           ))}
@@ -300,4 +300,3 @@ function Programs() {
 }
 
 export default Programs;
-

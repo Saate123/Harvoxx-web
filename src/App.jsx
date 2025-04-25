@@ -22,7 +22,7 @@ function App() {
         <Route path="/services/:id" element={<ServiceDetails />} />
         <Route path="/events" element={<Events />} />
         <Route path="/program" element={<Programs />} />
-        <Route path="/programs/:programId" element={<ProgramDetails />} />
+        <Route path="/program/:programId" element={<ProgramDetails />} />
       </Routes>
     </BrowserRouter>
   );

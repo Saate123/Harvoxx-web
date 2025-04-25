@@ -37,7 +37,7 @@ const programDetails = {
   },
   "frontend-dev-basic": {
     image: Img3,
-    title: "WEB DEV. (FRONTEND)",
+    title: "WEB DEV. (FRONTEND) - Basic",
     package: "Basic - Intermediate",
     duration: "3 months",
     tools: "HTML, CSS, JavaScript",
@@ -45,10 +45,10 @@ const programDetails = {
   },
   "frontend-dev-adv": {
     image: Img3,
-    title: "WEB DEV. (FRONTEND)",
+    title: "WEB DEV. (FRONTEND) - Advanced",
     package: "Advance",
     duration: "4 months",
-    tools: "HTML, CSS, JavaScript",
+    tools: "HTML, CSS, JavaScript, Vue.Js, React.js",
     amount: 220000,
   },
   "backend-dev": {
@@ -70,7 +70,7 @@ const programDetails = {
   },
   "digital-marketing-basic": {
     image: Img6,
-    title: "DIGITAL MARKETING",
+    title: "DIGITAL MARKETING - Basic",
     package: "Basic - Intermediate",
     duration: "3 months",
     tools:
@@ -79,8 +79,8 @@ const programDetails = {
   },
   "digital-marketing-adv": {
     image: Img6,
-    title: "DIGITAL MARKETING",
-    package: "Basic - Intermediate",
+    title: "DIGITAL MARKETING - Advanced",
+    package: "Advanced",
     duration: "3 months",
     tools:
       "SM- Marketing, Content Marketing, Email Marketing, Community Management, Mobile Marketing, Affiliate Marketing, Search Engine Marketing (SEM), Search Engine Optimization (SEO)",
@@ -113,7 +113,7 @@ const programDetails = {
   },
   "data-analytics-basic": {
     image: Img10,
-    title: "DATA ANALYTICS",
+    title: "DATA ANALYTICS - Basic",
     package: "Basic - Intermediate",
     duration: "3 months",
     tools: "Excel, Power BI, SQL, Python",
@@ -121,24 +121,24 @@ const programDetails = {
   },
   "data-analytics-adv": {
     image: Img11,
-    title: "DATA ANALYTICS",
-    package: "Advance",
+    title: "DATA ANALYTICS - Advanced",
+    package: "Advanced",
     duration: "5 months",
     tools: "Adv. Excel, Power BI, Adv. SQL, ADV. Python, Tableau",
     amount: 270000,
   },
-  "cyber-basic": {
+  "cyber-security-basic": {
     image: Img12,
-    title: "CYBER SECURITY",
+    title: "CYBER SECURITY - Basic",
     package: "Basic - Intermediate",
     duration: "3 months",
     tools: "Nmap, Burp Suite, Nessus, Firece, Wfuzz",
     amount: 150000,
   },
-  "cyber-adv": {
+  "cyber-security-adv": {
     image: Img12,
-    title: "CYBER SECURITY",
-    package: "ADVANCE",
+    title: "CYBER SECURITY - Advanced",
+    package: "Advanced",
     duration: "6 months",
     tools:
       "Nmap, Katana, Nuclei, Wireshark, Splunk, Metasploit framework and scripting, Desired State of Configurations.",
@@ -151,25 +151,32 @@ const ProgramDetails = () => {
   const [track, setTrack] = useState("basic");
 
   const isWebDev = programId === "web-development";
-  const toggleablePrograms = [
-    "digital-marketing",
-    "data-analytics",
-    "cyber",
-    "frontend-dev",
-  ];
+  const toggleablePrograms = ["digital-marketing", "data-analytics", "cyber-security"];
   const baseId = toggleablePrograms.includes(programId)
     ? `${programId}-${track}`
     : programId;
 
   const program = programDetails[baseId];
-  const isToggleEnabled = toggleablePrograms.includes(programId);
+  const isToggleEnabled = toggleablePrograms.includes(programId) || isWebDev; // Enable toggle for Web Dev
 
   const webDevPrograms = [
-    programDetails["frontend-dev"],
+    programDetails["frontend-dev-basic"],
     programDetails["frontend-dev-adv"],
     programDetails["backend-dev"],
     programDetails["fullstack-dev"],
   ];
+
+  // Filter web development programs based on the selected track
+  const displayedWebDevPrograms = isWebDev
+    ? webDevPrograms.filter((p) => {
+        if (track === "basic") {
+          return p.package.includes("Basic") || p.package.includes("Full");
+        } else if (track === "adv") {
+          return p.package.includes("Advance") || p.package.includes("Full");
+        }
+        return true; // Show all if no track selected (shouldn't happen)
+      })
+    : [];
 
   const handleEnroll = (title) => {
     alert(`Enrolling for ${title}`);
@@ -180,65 +187,98 @@ const ProgramDetails = () => {
       <Header />
       <main className="flex px-4 py-10 max-w-6xl mx-auto">
         {isWebDev ? (
-          <div className="m-auto">
-            <h1 className="text-3xl font-bold text-center mb-6">
-              Web Development Tracks
+          <div className="w-full">
+            <h1 className="text-3xl text-[#213D56] font-bold text-left mb-6">
+              Web Development
             </h1>
-            <div className="grid md:grid-cols-2 gap-6">
-              {webDevPrograms.map((course, idx) => (
-                <>
-                  <h2 className="text-xl font-bold mb-1">{course.title}</h2>
-                  <p className="text-sm text-gray-500 mb-2">{course.package}</p>
-                  <p className="flex items-center gap-2 text-gray-600 mb-2">
-                    <IoTime /> {course.duration}
-                  </p>
-                  <p className="text-sm mb-2">
-                    <strong>Tools:</strong> {course.tools}
-                  </p>
-                  <p className="font-semibold text-blue-600">
-                    ₦{course.amount.toLocaleString()}
-                  </p>
-                  <button
-                    className="mt-3 bg-[#ffcc00] text-[#213D56] px-4 py-2 rounded"
-                    onClick={() => handleEnroll(course.title)}
-                  >
-                    Enroll Now
-                  </button>
-                  <div
-                    key={idx}
-                    className=" rounded-lg shadow p-4 hover:shadow-lg transition-all"
-                  >
-                    <img
-                      src={course.image}
-                      alt={course.title}
-                      className="h-52 w-full object-cover rounded mb-4"
-                    />
-                  </div>
-                </>
-              ))}
-            </div>
-          </div>
-        ) : program ? (
-          <div>
-            <h1 className="text-3xl font-bold text-center mb-6">
-              {program.title}
-            </h1>
-
+            <p className="text-left text-gray-600 mb-10">
+              This section focuses on Frontend Development and has two
+              categories: Beginner-Intermediate and Advanced.
+            </p>
             {isToggleEnabled && (
-              <div className="flex justify-center gap-4 mb-6">
+              <div className="flex justify-center mb-6">
                 <button
                   onClick={() => setTrack("basic")}
-                  className={`px-4 py-2 rounded-full ${
+                  className={`px-4 py-2 rounded-bl-full rounded-tl-full w-[620px] h-[50px] ${
                     track === "basic"
                       ? "bg-[#213D56] text-white"
                       : "bg-[#8F8F8F] text-white"
                   }`}
                 >
-                  Basic
+                  Basic - Intermediate
                 </button>
                 <button
                   onClick={() => setTrack("adv")}
-                  className={`px-4 py-2 rounded-full ${
+                  className={`px-4 py-2 rounded-tr-full rounded-br-full w-[620px] h-[50px] ${
+                    track === "adv"
+                      ? "bg-[#213D56] text-white"
+                      : "bg-[#8F8F8F] text-white"
+                  }`}
+                >
+                  Advanced
+                </button>
+              </div>
+            )}
+            <div className="grid gap-10">
+              {displayedWebDevPrograms.map((course, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-lg shadow-md overflow-hidden grid md:grid-cols-2 gap-4"
+                >
+                  <div className="p-6 flex flex-col justify-between">
+                    <div>
+                      <h2 className="text-xl font-bold mb-1">{course.title}</h2>
+                      <p className="text-sm text-gray-500 mb-2">
+                        {course.package}
+                      </p>
+                      <p className="flex items-center gap-2 text-gray-600 mb-2">
+                        <IoTime /> {course.duration}
+                      </p>
+                      <p className="text-sm mb-2">
+                        <strong>Tools:</strong> {course.tools}
+                      </p>
+                      <p className="font-semibold text-blue-600 text-lg">
+                        ₦
+                        {course.amount ? course.amount.toLocaleString() : "N/A"}
+                      </p>
+                    </div>
+                    <button
+                      className="mt-4 bg-[#ffcc00] text-[#213D56] px-4 py-2 rounded w-fit hover:opacity-90"
+                      onClick={() => handleEnroll(course.title)}
+                    >
+                      Enroll Now
+                    </button>
+                  </div>
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="h-64 w-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : program ? (
+          <div className="w-full">
+            <h1 className="text-3xl font-bold text-center mb-6">
+              {program.title}
+            </h1>
+
+            {isToggleEnabled && (
+              <div className="flex justify-center mb-6">
+                <button
+                  onClick={() => setTrack("basic")}
+                  className={`px-4 py-2 rounded-bl-full rounded-tl-full w-[620px] h-[50px] ${
+                    track === "basic"
+                      ? "bg-[#213D56] text-white"
+                      : "bg-[#8F8F8F] text-white"
+                  }`}
+                >
+                  Basic - Intermediate
+                </button>
+                <button
+                  onClick={() => setTrack("adv")}
+                  className={`px-4 py-2 rounded-tr-full rounded-br-full w-[620px] h-[50px] ${
                     track === "adv"
                       ? "bg-[#213D56] text-white"
                       : "bg-[#8F8F8F] text-white"
@@ -249,17 +289,17 @@ const ProgramDetails = () => {
               </div>
             )}
 
-            <div className="flex">
-              <div>
-                <p className="text-sm text-gray-500 mb-2">{program.package}</p>
-                <p className="flex items-center gap-2 text-gray-600 mb-2">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div className="space-y-3">
+                <p className="text-sm text-gray-500">{program.package}</p>
+                <p className="flex items-center gap-2 text-gray-600">
                   <IoTime /> {program.duration}
                 </p>
-                <p className="mb-2">
+                <p>
                   <strong>Tools:</strong> {program.tools}
                 </p>
-                <p className="text-lg font-semibold text-[#213D56] mb-4">
-                  ₦{program.amount.toLocaleString()}
+                <p className="text-lg font-semibold text-[#213D56]">
+                  ₦{program.amount ? program.amount.toLocaleString() : "N/A"}
                 </p>
                 <button
                   className="bg-[#ffcc00] px-6 py-2 rounded hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] transition-all duration-300"
@@ -268,13 +308,11 @@ const ProgramDetails = () => {
                   Enroll Now
                 </button>
               </div>
-              <div className=" shadow rounded-lg p-6 w-2xl mx-auto">
-                <img
-                  src={program.image}
-                  alt={program.title}
-                  className="h-64 w-full object-cover rounded mb-6"
-                />
-              </div>
+              <img
+                src={program.image}
+                alt={program.title}
+                className="h-64 w-full object-cover rounded"
+              />
             </div>
           </div>
         ) : (
