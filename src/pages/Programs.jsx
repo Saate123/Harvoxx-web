@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoTime } from "react-icons/io5";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -286,7 +286,7 @@ function Programs() {
                 {item.tools}
               </p>
               <button className="mt-auto bg-[rgb(255,204,0)] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300">
-                <a href={`/program/${item.groupId || item.id}`}>View Details</a>
+                <Link to={`/program/${item.groupId || item.id}`}>View Details</Link>
               </button>
             </div>
           ))}

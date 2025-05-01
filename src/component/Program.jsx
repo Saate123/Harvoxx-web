@@ -5,7 +5,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Img from "../assets/productdes.jpg";
 import Img2 from "../assets/productmgt.png";
@@ -184,7 +184,7 @@ function Program() {
                 onClick={() => handleReadMore(item)}
                 className="mt-4 bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-6 py-2 rounded transition-all duration-300"
               >
-                <a href={`/program/${item.groupId || item.id}`}>View Details</a>
+                <Link to={`/program/${item.groupId || item.id}`}>View Details</Link>
               </button>
             </div>
           </SwiperSlide>
@@ -196,7 +196,7 @@ function Program() {
           onClick={handleSeeAllCourses}
           className="bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300"
         >
-          <a href="/program">See All Courses</a>
+          <Link to="/program">See All Courses</Link>
         </button>
       </div>
     </div>

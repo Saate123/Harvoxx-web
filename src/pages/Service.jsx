@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../component/Header";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Img from "../assets/services.png";
 import Img2 from "../assets/newsletter.png";
 import Img3 from "../assets/consultancy.png";
@@ -150,7 +150,7 @@ function Service() {
                   onClick={() => handleReadMore(service)}
                   className="mt-4 bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-6 py-2 rounded transition-all duration-300"
                 >
-                  <a href={`/services/${service.id}`}>Read More</a>
+                  <Link to={`/services/${service.id}`}>Read More</Link>
                 </button>
               </div>
 
