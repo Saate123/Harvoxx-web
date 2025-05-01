@@ -170,20 +170,22 @@ function Programs() {
     <div>
       <Header />
       <div className="max-w-7xl mx-auto px-4 py-10 relative">
-        <h1 className="text-3xl text-[#213D56] md:text-4xl lg:text-left font-semibold text-center mb-4">
+        <h1 className="text-3xl text-[#213D56] md:text-[28px] lg:text-left font-semibold text-center mb-4">
           Our{" "}
           <span className="relative inline-block">
             Programs & Pricing
             <svg
-              className="w-full h-2 mt-1"
-              viewBox="0 0 100 10"
-              preserveAspectRatio="none"
+              width="109"
+              height="9"
+              viewBox="0 0 109 9"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M0,10 Q50,0 100,10"
-                fill="none"
-                stroke="#ffcc00"
-                strokeWidth="4"
+                d="M1.59439 6.61635C26.4274 1.95132 68.5451 1.10852 107.094 4.12051"
+                stroke="#FFCC00"
+                stroke-width="3"
+                stroke-linecap="round"
               />
             </svg>
           </span>
@@ -286,7 +288,9 @@ function Programs() {
                 {item.tools}
               </p>
               <button className="mt-auto bg-[rgb(255,204,0)] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-4 py-2 rounded transition-all duration-300">
-                <Link to={`/program/${item.groupId || item.id}`}>View Details</Link>
+                <Link to={`/program/${item.groupId || item.id}`}>
+                  View Details
+                </Link>
               </button>
             </div>
           ))}

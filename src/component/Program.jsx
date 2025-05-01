@@ -102,20 +102,22 @@ function Program() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 relative">
-      <h1 className="text-3xl text-[#213D56] md:text-4xl font-semibold text-center mb-4">
+      <h1 className="text-3xl text-[#213D56] md:text-[28px] font-semibold text-center mb-4">
         Harvoxx School &{" "}
         <span className="relative inline-block ">
           Programs
           <svg
-            className="w-full h-2 mt-1"
-            viewBox="0 0 100 10"
-            preserveAspectRatio="none"
+            width="145"
+            height="9"
+            viewBox="0 0 145 9"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0,10 Q50,0 100,10"
-              fill="none"
-              stroke="#ffcc00"
-              strokeWidth="4"
+              d="M2.36197 6.61635C35.4296 1.75651 91.4583 0.584621 142.71 3.2961"
+              stroke="#FFCC00"
+              stroke-width="3"
+              stroke-linecap="round"
             />
           </svg>
         </span>
@@ -184,7 +186,9 @@ function Program() {
                 onClick={() => handleReadMore(item)}
                 className="mt-4 bg-[#ffcc00] hover:bg-transparent border border-[#ffcc00] text-black hover:text-[#ffcc00] px-6 py-2 rounded transition-all duration-300"
               >
-                <Link to={`/program/${item.groupId || item.id}`}>View Details</Link>
+                <Link to={`/program/${item.groupId || item.id}`}>
+                  View Details
+                </Link>
               </button>
             </div>
           </SwiperSlide>

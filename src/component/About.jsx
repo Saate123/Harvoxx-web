@@ -7,7 +7,7 @@ function About() {
     <div className="flex flex-col md:flex-row justify-between items-center bg-[#213D56] px-6 md:px-16 py-12 gap-12">
       {/* Left Side: Text */}
       <div className="flex flex-col w-full md:w-1/2 order-1 md:order-1 text-center md:text-left">
-        <h2 className="text-2xl md:text-4xl font-semibold text-white mb-4">
+        <h2 className="text-2xl md:text-[32px] font-semibold text-white mb-4">
           About <span className="text-[#ffcc00]">Harvoxx Tech. Hub</span>
         </h2>
         <p className="text-white text-sm md:text-lg mb-4 leading-relaxed">
@@ -27,11 +27,11 @@ function About() {
 
         {/* Button on desktop (inline with text) */}
         <div className="hidden md:block mt-6">
-          <a href="/about">
+          <Link to="/about">
             <button className="w-[180px] bg-[#ffcc00] hover:bg-transparent hover:border hover:border-[#ffcc00] text-black hover:text-[#ffcc00] px-5 py-3 rounded-lg text-sm transition-all duration-300">
               Learn More
             </button>
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -54,11 +54,11 @@ function About() {
 
       {/* Button for mobile (after image) */}
       <div className="block md:hidden mt-6 order-3 w-full text-center">
-        <a href="/about">
+        <Link to="/about">
           <button className="w-[180px] bg-[#ffcc00] hover:bg-transparent hover:border hover:border-[#ffcc00] text-black hover:text-[#ffcc00] px-5 py-3 rounded-lg text-sm transition-all duration-300">
             Learn More
           </button>
-        </a>
+        </Link>
       </div>
     </div>
   );

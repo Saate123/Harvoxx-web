@@ -96,20 +96,22 @@ function Service() {
     <div>
       <Header />
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <h1 className="text-3xl md:text-4xl text-[#213D56] font-semibold text-left mb-4 lg:ml-6">
+        <h1 className="text-3xl md:text-[28px] text-[#213D56] font-semibold text-left mb-4 lg:ml-6">
           Our{" "}
           <span className="relative inline-block">
             Services
             <svg
-              className="w-full h-2 mt-1"
-              viewBox="0 0 100 10"
-              preserveAspectRatio="none"
+              width="128"
+              height="8"
+              viewBox="0 0 128 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M0,10 Q50,0 100,10"
-                fill="none"
-                stroke="#ffcc00"
-                strokeWidth="4"
+                d="M2.06636 6.38755C31.2439 1.51198 80.7269 0.312853 126.015 2.99911"
+                stroke="#FFCC00"
+                stroke-width="2.51088"
+                stroke-linecap="round"
               />
             </svg>
           </span>

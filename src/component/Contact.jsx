@@ -8,20 +8,22 @@ function Contact() {
   return (
     <div className="bg-gray-50 px-4 md:px-12 py-12 max-w-full mx-auto">
       {/* Title */}
-      <h1 className="text-3xl md:text-4xl font-semibold text-center mb-6">
-        Our{" "}
+      <h1 className="text-[28px] md:text-[28px] font-semibold text-center mb-6">
+        Our {" "}
         <span className="relative inline-block">
           Contact Information
           <svg
-            className="w-full h-2 mt-1"
-            viewBox="0 0 100 10"
-            preserveAspectRatio="none"
+            width="265"
+            height="10"
+            viewBox="0 0 295 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0,10 Q50,0 100,10"
-              fill="none"
-              stroke="#ffcc00"
-              strokeWidth="4"
+              d="M2.0849 8.26346C70.8609 1.05813 187.182 -0.13297 293.472 4.67965"
+              stroke="#FFCC00"
+              stroke-width="2.87017"
+              stroke-linecap="round"
             />
           </svg>
         </span>

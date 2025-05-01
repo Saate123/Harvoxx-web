@@ -28,25 +28,27 @@ function Events() {
 
   return (
     <div className="relative px-4 py-12 bg-gradient-to-br from-[#051A2B]  to-[#1568AB]">
-      <h1 className="text-3xl text-white md:text-4xl font-semibold text-center mb-4">
+      <h1 className="text-[28px] text-white md:text-[28px] font-semibold text-center mb-4">
         Our{" "}
         <span className="relative inline-block text-[#ffcc00]">
           Events
           <svg
-            className="w-full h-2 mt-1"
-            viewBox="0 0 100 10"
-            preserveAspectRatio="none"
+            width="100"
+            height="7"
+            viewBox="0 0 100 7"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0,10 Q50,0 100,10"
-              fill="none"
-              stroke="#ffcc00"
-              strokeWidth="4"
+              d="M1.62858 4.62898C24.3706 1.21349 62.8552 0.916236 98.0325 3.58531"
+              stroke="#FFCC00"
+              stroke-width="3"
+              stroke-linecap="round"
             />
           </svg>
         </span>
       </h1>
-      <p className="text-xl text-white text-center mb-12">
+      <p className="text-[20px] text-white text-center mb-12">
         Stay ahead with our exclusive tech-driven workshops, webinars, and{" "}
         <span className="text-[#ffcc00] font-semibold">conferences.</span>
       </p>

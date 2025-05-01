@@ -6,20 +6,22 @@ import { PiShieldCheckFill } from "react-icons/pi";
 function CoreValues() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-3xl md:text-4xl font-semibold text-center mb-4">
+      <h1 className="text-3xl md:text-[28px] font-semibold text-center mb-4">
         Our{" "}
         <span className="relative inline-block">
           Core Values
           <svg
-            className="w-full h-2 mt-1"
-            viewBox="0 0 100 10"
-            preserveAspectRatio="none"
+            width="156"
+            height="8"
+            viewBox="0 0 156 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0,10 Q50,0 100,10"
-              fill="none"
-              stroke="#ffcc00"
-              strokeWidth="4"
+              d="M1.87345 6.91512C37.7399 0.962941 98.5122 -0.0652575 154.104 3.84616"
+              stroke="#FFCC00"
+              stroke-width="2.08945"
+              stroke-linecap="round"
             />
           </svg>
         </span>

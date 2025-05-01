@@ -12,14 +12,14 @@ function Services() {
   const services = [
     {
       id: "web-dev",
-      title: "Website and Mobile App Design & Development",
+      title: <> Website and Mobile App<br/> Design & Development</>,
       description: [
         <>
-          <span className="text-[#ffcc00]">Build With Harvoxx</span>{" "}
-          designs & Develops websites for interested clients (individuals,
-          firms, companies, NGOs, government agencies etc) at an affordable
-          rate. We also deliver to our clients in record time as we do not
-          encourage extending agreed deadlines with clients.
+          <span className="text-[#ffcc00]">Build With Harvoxx</span> designs &
+          Develops websites for interested clients (individuals, firms,
+          companies, NGOs, government agencies etc) at an affordable rate. We
+          also deliver to our clients in record time as we do not encourage
+          extending agreed deadlines with clients.
         </>,
         <>
           We ensure that we deliver to our clients on or before an agreed date.
@@ -54,9 +54,9 @@ function Services() {
       subtitle: "(Capacity Building Initiative)",
       description: [
         <>
-          <span className="text-[#ffcc00] ">Harvoxx School</span> is
-          committed to empowering individuals with the skills and knowledge
-          needed to thrive in a rapidly evolving world.
+          <span className="text-[#ffcc00] ">Harvoxx School</span> is committed
+          to empowering individuals with the skills and knowledge needed to
+          thrive in a rapidly evolving world.
         </>,
         <>
           Harvoxx School envisions a future where education transcends
@@ -75,10 +75,10 @@ function Services() {
       description: [
         <>
           Harvoxx Tech Hub’s{" "}
-          <span className="text-[#ffcc00] ">TechLauncher</span> prides
-          herself as the platform where successful startups emerge. We are
-          focused on ensuring that we help tech startups launch their products
-          successfully and grow exponentially.
+          <span className="text-[#ffcc00] ">TechLauncher</span> prides herself
+          as the platform where successful startups emerge. We are focused on
+          ensuring that we help tech startups launch their products successfully
+          and grow exponentially.
         </>,
         "With a focus on developing business models, go-to-market strategies, legal documentation, and fundraising, TechLauncher is a driving force behind the 14+ startups currently incubating at the hub. The monthly Startup Converge meetup further fosters collaboration and synergy among the startup teams.",
       ],
@@ -92,20 +92,22 @@ function Services() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
-      <h1 className="text-3xl md:text-4xl text[#213D56] font-semibold text-center mb-4">
+      <h1 className="text-3xl md:text-[28px] text[#213D56] font-semibold text-center mb-4">
         Our{" "}
         <span className="relative inline-block">
           Services
           <svg
-            className="w-full h-2 mt-1"
-            viewBox="0 0 100 10"
-            preserveAspectRatio="none"
+            width="128"
+            height="8"
+            viewBox="0 0 128 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0,10 Q50,0 100,10"
-              fill="none"
-              stroke="#ffcc00"
-              strokeWidth="4"
+              d="M2.06636 6.38755C31.2439 1.51198 80.7269 0.312853 126.015 2.99911"
+              stroke="#FFCC00"
+              stroke-width="2.51088"
+              stroke-linecap="round"
             />
           </svg>
         </span>
@@ -128,16 +130,16 @@ function Services() {
           >
             {/* Text Section */}
             <div className="w-full md:w-1/2">
-              <h2 className="text-2xl md:text-3xl font-semibold text-[#213D56] mb-2">
+              <h2 className="text-2xl md:text-[26px] font-semibold text-[#213D56] mb-2">
                 {service.title}
               </h2>
               {service.subtitle && (
-                <span className="text-2xl md:text-3xl font-normal text-[#213D56] mb-2 block">
+                <span className="text-2xl md:text-[26px] font-normal text-[#213D56] mb-2 block">
                   {service.subtitle}
                 </span>
               )}
               {service.description.map((para, i) => (
-                <p key={i} className="text-base text-[#333] mb-3 mt-7">
+                <p key={i} className="text-base text-[#333] mb-3 mt-7 text-[18px]">
                   {para}
                 </p>
               ))}

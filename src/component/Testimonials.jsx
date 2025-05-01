@@ -53,20 +53,22 @@ function Testimonials() {
 
   return (
     <div className="bg-white py-16 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto">
-      <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-4">
+      <h2 className="text-[28px] sm:text-3xl font-semibold text-center mb-4">
         What Our{" "}
         <span className="text-[#FFcc00] font-semibold relative inline-block">
           Clients
           <svg
-            className="w-full h-2 mt-1"
-            viewBox="0 0 100 10"
-            preserveAspectRatio="none"
+            width="108"
+            height="8"
+            viewBox="0 0 108 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0,10 Q50,0 100,10"
-              fill="none"
-              stroke="#ffcc00"
-              strokeWidth="4"
+              d="M1.9537 6.2577C26.4774 2.48207 68.0587 1.39951 106.11 3.25645"
+              stroke="#FFCC00"
+              stroke-width="3"
+              stroke-linecap="round"
             />
           </svg>
         </span>{" "}

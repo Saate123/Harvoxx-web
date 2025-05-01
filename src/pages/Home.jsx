@@ -12,6 +12,8 @@ import Testimonials from '../component/Testimonials'
 import Contact from '../component/Contact'
 import Newsletter from '../component/Newsletter'
 import Footer from '../component/Footer'
+import CSRImpactSection from '../component/CSRImpactSection'
+import WallOfFame from '../component/WallOfFame'
 
 function Home() {
   return (
@@ -25,6 +27,8 @@ function Home() {
       <Services />
       <Pricing />
       <Events />
+      <CSRImpactSection />
+      <WallOfFame />
       <Testimonials />
       <Contact />
       <Newsletter />
