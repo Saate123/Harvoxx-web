@@ -277,7 +277,7 @@ const ProgramDetails = () => {
           <h2 className="text-3xl sm:text-4xl md:text-[40px] font-bold leading-tight">
             {program?.label || "WEB DEVELOPMENT"}
           </h2>
-          <p className="mt-6 text-sm sm:text-base md:text-lg text-gray-200 mx-auto">
+          <p className="mt-6 text-sm sm:text-base max-w-3xl md:text-lg text-gray-200 mx-auto">
             {program?.paragraph || "Master the art of web development, from creating stunning interfaces to building powerful backends. Choose your path—Frontend, Backend, or go Fullstack for the complete skill set."}
           </p>
         </div>
@@ -408,7 +408,7 @@ const ProgramDetails = () => {
                   <IoTime /> {program.duration}
                 </p>
                 <p>
-                  <strong>Tools:</strong> {program.tools}
+                  <strong>Tools:</strong><br/> {program.tools}
                 </p>
                 <p className="text-lg font-semibold text-[#213D56]">
                   ₦{program.amount ? program.amount.toLocaleString() : "N/A"}
